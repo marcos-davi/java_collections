@@ -1,4 +1,4 @@
-package nivel1.exercise2;
+package nivel2.exercises1And2;
 
 import java.util.Objects;
 

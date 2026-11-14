@@ -1,31 +1,34 @@
 package nivel1.exercise2;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.ListIterator;
 
 public class Main {
     public static void main(String[] args) {
-        // Create a list of restaurants
-        List<Restaurant> restaurants = new ArrayList<>();
-        restaurants.add(new Restaurant("Can Ros", 7));
-        restaurants.add(new Restaurant("El Bulli", 10));
-        restaurants.add(new Restaurant("Can Ros", 9)); // Same name, higher score
-        restaurants.add(new Restaurant("Abac", 8));
-        restaurants.add(new Restaurant("Can Ros", 8)); // Same name, middle score
+        // 1. Create and populate the first integer list
+        List<Integer> firstList = new ArrayList<>();
+        firstList.add(10);
+        firstList.add(20);
+        firstList.add(30);
+        firstList.add(40);
+        firstList.add(50);
 
-        System.out.println("=== Unsorted Restaurants ===");
-        for (Restaurant r : restaurants) {
-            System.out.println(r);
+        System.out.println("=== First List ===");
+        System.out.println(firstList);
+
+        // 2. Create a second list to store elements in reverse order
+        List<Integer> secondList = new ArrayList<>();
+
+        // 3. Obtain a ListIterator positioned at the very end of the first list
+        ListIterator<Integer> iterator = firstList.listIterator(firstList.size());
+
+        // Traverse backwards and add each element to the second list
+        while (iterator.hasPrevious()) {
+            secondList.add(iterator.previous());
         }
 
-        // Use our custom comparator class to sort the restaurants
-        RestaurantComparator comparator = new RestaurantComparator();
-        Collections.sort(restaurants, comparator);
-
-        System.out.println("\n=== Sorted Restaurants (Name A-Z, Score Descending) ===");
-        for (Restaurant r : restaurants) {
-            System.out.println(r);
-        }
+        System.out.println("\n=== Second List (Reversed Order) ===");
+        System.out.println(secondList);
     }
 }

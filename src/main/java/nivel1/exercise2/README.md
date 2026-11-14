@@ -1,11 +1,18 @@
-# Level 1 - Exercise 2: ListIterator
+# Nivel 1 - Exercise 2: ListIterator
 
 ## Overview
-This exercise implements multi-criteria object sorting in Java using a custom `Comparator` implementation. It demonstrates how to establish a hierarchical sorting order based on multiple attributes.
+This exercise focuses on bidirectional list traversal and data manipulation in Java using the `ListIterator` interface. It demonstrates how to efficiently invert the order of elements in a list without altering the original collection.
 
-## Components
-- **`Restaurant.java`**: The core data model representing a restaurant with `name` and `score` attributes. It includes a constructor, getters, and overridden `equals()` and `hashCode()` methods to manage object identity and uniqueness.
-- **`RestaurantComparator.java`**: A custom comparator implementing `Comparator<Restaurant>` that enforces multi-level sorting rules:
-    1. **Primary Criterion**: Alphabetical sorting by restaurant name (`A-Z`).
-    2. **Secondary Criterion**: If names match, sorts by score in **descending order** (highest score first).
-- **`Main.java`**: The executable driver class that initializes a list of restaurants, applies the custom `RestaurantComparator` via `Collections.sort()`, and prints both the unsorted and sorted lists to the console.
+## Key Concepts & Objectives
+- **List Initialization:** Creating and populating an initial `List<Integer>` with collection elements.
+- **Bidirectional Iteration:** Utilizing `ListIterator` to navigate through list elements both forwards and backwards.
+- **Cursor Positioning:** Instantiating the iterator at the very end of the source list (`originalList.size()`) to read elements in reverse order via `hasPrevious()` and `previous()`.
+- **Data Inversion:** Populating a secondary list dynamically based on backward traversal.
+
+## Implementation Details
+- **`Main.java`**:
+  1. Instantiates an `ArrayList<Integer>` and populates it with integer values.
+  2. Creates a target `ArrayList<Integer>` for the reversed sequence.
+  3. Obtains a `ListIterator` configured at the end of the original list.
+  4. Iterates backwards through the source list, appending each element to the new list, and prints both the original and reversed lists to the console.
+

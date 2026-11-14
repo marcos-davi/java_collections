@@ -14,11 +14,6 @@ public class Month {
         return name;
     }
 
-    public Month setName(String name) {
-        this.name = name;
-        return this;
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(name);

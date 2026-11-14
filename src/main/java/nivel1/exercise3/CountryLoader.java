@@ -16,7 +16,7 @@ public class CountryLoader {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] parts = line.trim().split("\\s+");
+                String[] parts = line.trim().split(" ");
                 if (parts.length >= 2) {
                     String country = parts[0];
                     StringBuilder capital = new StringBuilder();
